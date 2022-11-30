@@ -7,24 +7,30 @@ import Search from "./Search";
 
 export default function ProductComparison({
   data,
+  products,
+  setProducts,
+  selectedItems,
+  setSelectedItems,
+  addToCompare,
+  removeToCompare,
   isAuthenticated,
   isLoading,
   addToCart,
   removeToCart,
   selectedProducts,
 }) {
-  const [selectedItems, setSelectedItems] = useState([]);
-  const [products, setProducts] = useState(data);
+  // const [selectedItems, setSelectedItems] = useState([]);
+  // const [products, setProducts] = useState(data);
   const [message, setMessage] = useState("");
 
-  const addToCompare = (product) => {
-    setSelectedItems([...selectedItems, product]);
-  };
-  const removeToCompare = (product) => {
-    setSelectedItems([
-      ...selectedItems.filter((el) => el.product_id !== product.product_id),
-    ]);
-  };
+  // const addToCompare = (product) => {
+  //   setSelectedItems([...selectedItems, product]);
+  // };
+  // const removeToCompare = (product) => {
+  //   setSelectedItems([
+  //     ...selectedItems.filter((el) => el.product_id !== product.product_id),
+  //   ]);
+  // };
 
   return isLoading ? (
     <Loading />
@@ -42,7 +48,7 @@ export default function ProductComparison({
       />
       <p style={{ textAlign: "center" }}> {message}</p>
 
-      {selectedItems.length > 0 ? (
+      {/* {selectedItems.length > 0 ? (
         <>
           <h1 style={{ color: "green", textAlign: "center" }}>
             Product comparison
@@ -93,7 +99,7 @@ export default function ProductComparison({
             </div>
           </div>
         </>
-      ) : null}
+      ) : null} */}
 
       <div className="products_container">
         {products.map((product, i) => (

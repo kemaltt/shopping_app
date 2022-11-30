@@ -234,6 +234,9 @@ td {
   font-size: 16px;
 }
 
+.compare {
+  height: 80vh;
+}
 .compare_container {
   display: flex;
   width: 80%;

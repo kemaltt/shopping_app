@@ -12,19 +12,22 @@ export default function Navbar({
   isAuthenticated,
   user,
   selectedProducts,
+  selectedItems,
 }) {
   const badge = selectedProducts.length;
+  const badge2 = selectedItems.length;
   console.log(badge);
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
   const handleNavList = () => {
     setToggle(!toggle);
   };
+
   return (
     <div className="navbar_">
       <nav>
         <img
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/", { replace: true })}
           src="https://pbs.twimg.com/media/Ddna4X7UQAEQeBr.jpg:large"
           alt="logo"
         />
@@ -32,8 +35,20 @@ export default function Navbar({
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/aboutus">About Us</Link>
+          </li> */}
+          <li>
+            <Link to="/compare">
+              Compare
+              <Badge
+                style={{ position: "relative", top: "-10px", width: "23px" }}
+                bg="warning"
+              >
+                {badge2}
+              </Badge>
+              <span className="visually-hidden">unread messages</span>
+            </Link>
           </li>
 
           {isAuthenticated ? (
@@ -44,7 +59,11 @@ export default function Navbar({
                   {isAuthenticated ? (
                     <>
                       <Badge
-                        style={{ position: "relative", top: "-10px" }}
+                        style={{
+                          position: "relative",
+                          top: "-10px",
+                          width: "23px",
+                        }}
                         bg="danger"
                       >
                         {badge}
@@ -89,7 +108,20 @@ export default function Navbar({
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/aboutus">About Us</Link>
+              <Link to="/compare">
+                Compare
+                <Badge
+                  style={{
+                    fontSize: "1rem",
+                    position: "relative",
+                    top: "-10px",
+                  }}
+                  bg="warning"
+                >
+                  {badge2}
+                </Badge>
+                <span className="visually-hidden">unread messages</span>
+              </Link>
             </li>
             <li>
               <Link to="/cart">
