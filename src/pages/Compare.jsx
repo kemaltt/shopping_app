@@ -53,7 +53,11 @@ export default function Compare({ selectedItems }) {
                   </tr>
                   <tr>
                     <th>
-                      <Button variant="outlined" startIcon={<DeleteIcon />}>
+                      <Button
+                        variant="outlined"
+                        color="error"
+                        startIcon={<DeleteIcon />}
+                      >
                         Delete
                       </Button>
                     </th>
