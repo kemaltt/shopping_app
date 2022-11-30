@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-Link:https://shoppingappp.netlify.app/
+Link:https://shoppinggapp.netlify.app/
 
 
 
