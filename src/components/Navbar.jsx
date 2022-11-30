@@ -38,21 +38,25 @@ export default function Navbar({
           {/* <li>
             <Link to="/aboutus">About Us</Link>
           </li> */}
-          <li>
-            <Link to="/compare">
-              Compare
-              <Badge
-                style={{ position: "relative", top: "-10px", width: "23px" }}
-                bg="warning"
-              >
-                {badge2}
-              </Badge>
-              <span className="visually-hidden">unread messages</span>
-            </Link>
-          </li>
 
           {isAuthenticated ? (
             <>
+              <li>
+                <Link to="/compare">
+                  Compare
+                  <Badge
+                    style={{
+                      position: "relative",
+                      top: "-10px",
+                      width: "23px",
+                    }}
+                    bg="warning"
+                  >
+                    {badge2}
+                  </Badge>
+                  <span className="visually-hidden">unread messages</span>
+                </Link>
+              </li>
               <li>
                 <Link to="/cart">
                   <BsCartCheck style={{ fontSize: "3rem" }} />
@@ -107,44 +111,47 @@ export default function Navbar({
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/compare">
-                Compare
-                <Badge
-                  style={{
-                    fontSize: "1rem",
-                    position: "relative",
-                    top: "-10px",
-                  }}
-                  bg="warning"
-                >
-                  {badge2}
-                </Badge>
-                <span className="visually-hidden">unread messages</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/cart">
-                <BsCartCheck style={{ fontSize: "3rem" }} />
-                <Badge
-                  style={{
-                    fontSize: "1rem",
-                    position: "relative",
-                    top: "-10px",
-                  }}
-                  bg="danger"
-                >
-                  {badge}
-                </Badge>
-                <span className="visually-hidden">unread messages</span>
-              </Link>
-            </li>
+
             {isAuthenticated ? (
-              <li>
-                <Link onClick={logout} to="">
-                  <MdLogout style={{ fontSize: "2.5rem" }} /> {user.name}
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link to="/compare">
+                    Compare
+                    <Badge
+                      style={{
+                        fontSize: "1rem",
+                        position: "relative",
+                        top: "-10px",
+                      }}
+                      bg="warning"
+                    >
+                      {badge2}
+                    </Badge>
+                    <span className="visually-hidden">unread messages</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/cart">
+                    <BsCartCheck style={{ fontSize: "3rem" }} />
+                    <Badge
+                      style={{
+                        fontSize: "1rem",
+                        position: "relative",
+                        top: "-10px",
+                      }}
+                      bg="danger"
+                    >
+                      {badge}
+                    </Badge>
+                    <span className="visually-hidden">unread messages</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={logout} to="">
+                    <MdLogout style={{ fontSize: "2.5rem" }} /> {user.name}
+                  </Link>
+                </li>
+              </>
             ) : (
               <li>
                 <Link onClick={loginWithRedirect} to="">
