@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function Compare({ selectedItems }) {
   return (
@@ -48,6 +50,13 @@ export default function Compare({ selectedItems }) {
                         ></i>
                       ))}
                     </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <Button variant="outlined" startIcon={<DeleteIcon />}>
+                        Delete
+                      </Button>
+                    </th>
                   </tr>
                 </table>
               ))}
