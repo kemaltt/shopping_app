@@ -84,7 +84,12 @@ function App() {
           {/* <Route path="/aboutus" element={<AboutUs />} /> */}
           <Route
             path="/compare"
-            element={<Compare selectedItems={selectedItems} />}
+            element={
+              <Compare
+                selectedItems={selectedItems}
+                setSelectedItems={setSelectedItems}
+              />
+            }
           />
           <Route
             path="/productdetail/:id"
