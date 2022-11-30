@@ -1,10 +1,10 @@
-import React from 'react'
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { MdLogout } from 'react-icons/md'
-import { MdLogin } from 'react-icons/md'
-import { BsCartCheck } from 'react-icons/bs'
-import Badge from 'react-bootstrap/Badge'
+import React from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { MdLogout } from "react-icons/md";
+import { MdLogin } from "react-icons/md";
+import { BsCartCheck } from "react-icons/bs";
+import Badge from "react-bootstrap/Badge";
 
 export default function Navbar({
   loginWithRedirect,
@@ -13,18 +13,18 @@ export default function Navbar({
   user,
   selectedProducts,
 }) {
-  const badge = selectedProducts.length
-  console.log(badge)
-  const navigate = useNavigate()
-  const [toggle, setToggle] = useState(false)
+  const badge = selectedProducts.length;
+  console.log(badge);
+  const navigate = useNavigate();
+  const [toggle, setToggle] = useState(false);
   const handleNavList = () => {
-    setToggle(!toggle)
-  }
+    setToggle(!toggle);
+  };
   return (
     <div className="navbar_">
       <nav>
         <img
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
           src="https://pbs.twimg.com/media/Ddna4X7UQAEQeBr.jpg:large"
           alt="logo"
         />
@@ -40,11 +40,11 @@ export default function Navbar({
             <>
               <li>
                 <Link to="/cart">
-                  <BsCartCheck style={{ fontSize: '3rem' }} />
+                  <BsCartCheck style={{ fontSize: "3rem" }} />
                   {isAuthenticated ? (
                     <>
                       <Badge
-                        style={{ position: 'relative', top: '-10px' }}
+                        style={{ position: "relative", top: "-10px" }}
                         bg="danger"
                       >
                         {badge}
@@ -54,28 +54,32 @@ export default function Navbar({
                   ) : null}
                 </Link>
               </li>
-              <li style={{ marginLeft: '4rem' }}>
+              <li style={{ marginLeft: "4rem" }}>
                 <Link>{user.name} </Link>
               </li>
 
               <li className="logout">
                 <Link onClick={logout} to="">
-                  <MdLogout style={{ fontSize: '3rem' }} />
+                  <MdLogout style={{ fontSize: "3rem" }} />
                 </Link>
               </li>
             </>
           ) : (
-            <li style={{ marginLeft: '1rem' }}>
+            <li style={{ marginLeft: "1rem" }}>
               <Link onClick={loginWithRedirect} to="">
                 Sign Up
-                <MdLogin style={{ fontSize: '3rem' }} />
+                <MdLogin style={{ fontSize: "3rem" }} />
               </Link>
             </li>
           )}
         </ul>
 
         <div onClick={handleNavList} className="burger_menü">
-          {!toggle ? <i class="las la-bars"></i> : <i class="las la-times"></i>}
+          {!toggle ? (
+            <i className="las la-bars"></i>
+          ) : (
+            <i className="las la-times"></i>
+          )}
         </div>
       </nav>
       <div className="mobile_navlist">
@@ -89,12 +93,12 @@ export default function Navbar({
             </li>
             <li>
               <Link to="/cart">
-                <BsCartCheck style={{ fontSize: '3rem' }} />
+                <BsCartCheck style={{ fontSize: "3rem" }} />
                 <Badge
                   style={{
-                    fontSize: '1rem',
-                    position: 'relative',
-                    top: '-10px',
+                    fontSize: "1rem",
+                    position: "relative",
+                    top: "-10px",
                   }}
                   bg="danger"
                 >
@@ -106,7 +110,7 @@ export default function Navbar({
             {isAuthenticated ? (
               <li>
                 <Link onClick={logout} to="">
-                  <MdLogout style={{ fontSize: '2.5rem' }} /> {user.name}
+                  <MdLogout style={{ fontSize: "2.5rem" }} /> {user.name}
                 </Link>
               </li>
             ) : (
@@ -120,5 +124,5 @@ export default function Navbar({
         ) : null}
       </div>
     </div>
-  )
+  );
 }

@@ -77,14 +77,13 @@ export default function ProductComparison({
                   </tr>
                   <tr>
                     <td>
-                      {" "}
                       {[...Array(5)].map((star, i) => (
                         <i
                           style={{
                             fontSize: "1.5rem",
                             color: el.rating.rate >= i + 1 ? "orange" : "grey",
                           }}
-                          class="las la-star"
+                          className="las la-star"
                         ></i>
                       ))}
                     </td>
@@ -99,6 +98,7 @@ export default function ProductComparison({
       <div className="products_container">
         {products.map((product, i) => (
           <ProductCard
+            key={i}
             product={product}
             id={product.product_id}
             i={i}
