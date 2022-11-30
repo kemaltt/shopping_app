@@ -1,0 +1,437 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+p {
+  font-size: 2rem;
+}
+
+th {
+  font-size: 1.8rem;
+}
+
+td {
+  font-size: 1.8rem;
+}
+
+/* .App {
+  height: 100vh;
+} */
+
+.navbar_ nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5vh 3%;
+  background-image: linear-gradient(
+    260deg,
+    #2376ae 0%,
+    #c16ecf 100%
+  ) !important;
+  color: white;
+}
+
+.navbar_ nav img {
+  cursor: pointer;
+  width: 120px;
+  border-radius: 10px;
+}
+
+.navbar_ nav .nav_item_desktop {
+  display: block;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.navbar_ nav ul a {
+  text-decoration: none;
+  padding: 5px;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+}
+
+/* .navbar nav ul a:active {
+  border-bottom: 1px solid white;
+  background-color: gray;
+  border-radius: 10px;
+} */
+
+.navbar_ nav ul a:hover {
+  transition: all 0.3s;
+  border-bottom: 1px solid white;
+  /* background-color: gray; */
+  border-radius: 10px;
+}
+
+.navbar_ nav .burger_menü {
+  display: none;
+  border: 2px solid white;
+  text-align: center;
+  padding: 1px 4px;
+  border-radius: 5px;
+}
+
+.navbar_ nav .burger_menü i {
+  font-size: 3rem;
+}
+
+/* 
+.logout {
+  border: solid 1px #fff;
+  border-radius: 5px;
+  font-weight: bold;
+} */
+
+.mobile_navlist {
+  display: none;
+  transition: all 0.4s linear;
+}
+
+.main {
+  text-align: center;
+  padding-bottom: 10vh;
+}
+
+.products_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 2vh 5%;
+  position: relative;
+}
+
+.product_detail {
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 70%;
+  margin: 5vh auto;
+  text-align: center;
+  padding: 3%;
+  overflow: hidden;
+}
+
+.product_detail img {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+.product_detail img:hover {
+  transition: all 0.3s ease-in-out;
+  transform: translateY(30%) scale(1.8, 1.8);
+}
+
+.product_detail p {
+  margin: 0;
+}
+
+.product_card {
+  width: 250px;
+  height: 320px;
+  cursor: pointer;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  border: solid 1px rgb(199, 198, 198);
+  border-radius: 25px;
+  padding: 1vh 2%;
+  transition: all 0.3s ease-in-out;
+}
+
+.product_card:hover {
+  box-shadow: 2px 2px 7px;
+  /* transform: scale(1.1, 1.1); */
+  transition: all 0.3s ease-in-out;
+}
+
+.product_card h3 {
+  font-size: 1.5rem;
+  height: 40px;
+}
+
+.product_card img {
+  width: 80%;
+  height: 180px;
+}
+
+.card_buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+}
+
+.card_buttons svg {
+  font-size: 3rem;
+}
+
+/* .card_buttons svg:nth-of-type(2) {
+  color: orange;
+}
+
+.card_buttons svg:nth-of-type(2):active {
+  color: yellowgreen;
+} */
+
+.popup_container {
+  position: absolute;
+  top: 30%;
+  left: 33%;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 20px;
+  width: 33%;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.search_container form {
+  width: 50%;
+  margin: 4vh auto;
+}
+
+.search_container form input {
+  width: 60%;
+  padding: 5px;
+  border: none;
+  border: solid 1px gray;
+  border-radius: 10px 0 0 10px;
+  font-size: 16px;
+}
+
+.search_container form button {
+  width: 20%;
+  padding: 5px;
+  border: none;
+  background-color: blue;
+  color: white;
+  border-radius: 0 10px 10px 0;
+  font-size: 16px;
+}
+
+.compare_container {
+  display: flex;
+  width: 80%;
+  margin: 2vh auto;
+}
+
+.compare_container table th {
+  font-size: 1.5rem;
+}
+
+.footer_container {
+  text-align: center;
+  background-image: linear-gradient(
+    260deg,
+    #2376ae 0%,
+    #c16ecf 100%
+  ) !important;
+  color: white;
+  padding: 2vh 0;
+}
+
+.register_container {
+  text-align: center;
+}
+
+.spinner-grow {
+  width: 5rem;
+  height: 5rem;
+}
+
+.cart {
+  width: 80%;
+  height: 100vh;
+  margin: 5vh auto;
+}
+
+.cart .quantity_btn {
+  text-align: center;
+  min-width: 50px;
+}
+
+.cart button {
+  width: 30px;
+  border: none;
+  color: white;
+}
+
+.cart_container {
+  position: fixed;
+  right: 3%;
+  top: 80%;
+  background-color: orange;
+  border-radius: 50%;
+  padding: 23px 10px;
+  z-index: 99999;
+  cursor: pointer;
+}
+.cart_container svg {
+  font-size: 5rem;
+  position: relative;
+  left: 10px;
+  color: rgb(243, 233, 233);
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar_ nav .nav_item_desktop {
+    display: none;
+  }
+
+  .navbar_ nav .burger_menü {
+    display: block;
+  }
+
+  .mobile_navlist {
+    display: block;
+    /* transition: all 0.4s linear; */
+    transition: right 0.4s ease;
+  }
+
+  .nav_item_mobile {
+    list-style: none;
+    padding: 1vh 3%;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid white;
+  }
+
+  .navbar_ nav img {
+    cursor: pointer;
+    width: 80px;
+    border-radius: 10px;
+  }
+
+  .nav_item_mobile li {
+    border-bottom: 1px solid white;
+  }
+
+  .nav_item_mobile a {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: all 0.4s linear;
+  }
+
+  .search_container form {
+    width: 70%;
+    margin: 4vh auto;
+  }
+
+  .search_container form button {
+    width: 25%;
+    padding: 6px;
+  }
+
+  .products_container {
+    gap: 10px;
+  }
+
+  .products_container {
+    padding: 2vh 1%;
+  }
+
+  .product_card {
+    width: 150px;
+    height: 240px;
+  }
+
+  .product_card img {
+    width: 80%;
+    height: 150px;
+  }
+
+  .product_card h3 {
+    font-size: 1rem;
+    height: 25px;
+    margin-bottom: 4px;
+  }
+
+  .product_card p {
+    margin: 0;
+  }
+
+  .product_card .price {
+    font-size: 1.2rem;
+  }
+
+  .card_buttons {
+    padding: 0 4%;
+  }
+
+  .card_buttons svg {
+    font-size: 2.2rem;
+  }
+
+  .compare_container {
+    gap: 5px;
+    width: 95%;
+    margin: 2vh auto;
+  }
+
+  .compare_container table th {
+    font-size: 1rem;
+  }
+
+  .product_detail {
+    width: 80%;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  th {
+    font-size: 1.3rem;
+  }
+
+  td {
+    font-size: 1.3rem;
+  }
+
+  .popup_container {
+    top: 40%;
+    left: 10%;
+    width: 80%;
+  }
+
+  .cart {
+    width: 95%;
+    height: 100vh;
+    margin: 5vh auto;
+  }
+
+  .cart .quantity_btn {
+    text-align: center;
+    min-width: 100px;
+  }
+
+  .cart_container {
+    display: none;
+  }
+}
