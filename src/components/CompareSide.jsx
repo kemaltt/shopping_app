@@ -10,7 +10,7 @@ export default function CompareSide({ selectedItems, isAuthenticated }) {
     <div
       onClick={() =>
         isAuthenticated
-          ? navigate("/cart")
+          ? navigate("/compare")
           : alert("please login before continuing")
       }
       className="compare-side"
