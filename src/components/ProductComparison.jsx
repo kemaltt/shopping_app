@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import Cart from "../components/Cart";
+import CartSide from "./CartSide";
+import CompareSide from "./CompareSide";
 import Loading from "./Loading";
 import ProductCard from "./ProductCard";
 import Search from "./Search";
@@ -19,9 +20,9 @@ export default function ProductComparison({
   removeToCart,
   selectedProducts,
 }) {
+  const [message, setMessage] = useState("");
   // const [selectedItems, setSelectedItems] = useState([]);
   // const [products, setProducts] = useState(data);
-  const [message, setMessage] = useState("");
 
   // const addToCompare = (product) => {
   //   setSelectedItems([...selectedItems, product]);
@@ -36,7 +37,11 @@ export default function ProductComparison({
     <Loading />
   ) : (
     <div className="main">
-      <Cart
+      <CompareSide
+        selectedItems={selectedItems}
+        isAuthenticated={isAuthenticated}
+      />
+      <CartSide
         selectedProducts={selectedProducts}
         isAuthenticated={isAuthenticated}
       />
