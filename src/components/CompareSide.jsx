@@ -9,27 +9,12 @@ export default function CompareSide({ selectedItems, isAuthenticated }) {
   return (
     <div
       onClick={() =>
-        isAuthenticated
-          ? navigate("/compare")
-          : alert("please login before continuing")
+        isAuthenticated ? navigate("/compare") : alert("please login")
       }
       className="compare-side"
     >
       <MdOutlineCompareArrows />
-      <Badge
-        style={{
-          fontSize: "1.2rem",
-          position: "relative",
-          top: "-35px",
-
-          width: "25px",
-          height: "25px",
-          borderRadius: "50%",
-        }}
-        bg="secondary"
-      >
-        {badge}
-      </Badge>
+      <Badge bg="secondary">{badge}</Badge>
     </div>
   );
 }

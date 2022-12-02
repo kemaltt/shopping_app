@@ -1,9 +1,9 @@
-import React from 'react'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { BsCartPlus } from 'react-icons/bs'
-import { BsCartCheckFill } from 'react-icons/bs'
-import { MdCompareArrows } from 'react-icons/md'
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { BsCartPlus } from "react-icons/bs";
+import { BsCartCheckFill } from "react-icons/bs";
+import { MdCompareArrows } from "react-icons/md";
 
 export default function ProductCard({
   product,
@@ -17,27 +17,19 @@ export default function ProductCard({
   selectedProducts,
   isAuthenticated,
 }) {
-  const [toggle, setToggle] = useState(false)
-  const navigate = useNavigate()
+  const [toggle, setToggle] = useState(false);
+  const navigate = useNavigate();
   const removeCart = () => {
-    !isAuthenticated
-      ? alert('please log in before continuing')
-      : removeToCart(product)
-  }
+    !isAuthenticated ? alert("please log") : removeToCart(product);
+  };
   const addCart = () => {
-    !isAuthenticated
-      ? alert('please log in before continuing')
-      : addToCart(product)
-  }
+    !isAuthenticated ? alert("please login") : addToCart(product);
+  };
 
   const productDetail = () => {
-    navigate(
-      isAuthenticated
-        ? `/productdetail/${id}`
-        : alert('please log in before continuing'),
-    )
-    setToggle(!toggle)
-  }
+    navigate(isAuthenticated ? `/productdetail/${id}` : alert("please login"));
+    setToggle(!toggle);
+  };
 
   return (
     <div key={i} className="product_card">
@@ -51,29 +43,27 @@ export default function ProductCard({
             <MdCompareArrows
               onClick={() =>
                 !isAuthenticated
-                  ? alert('please login before continuing')
+                  ? alert("please login")
                   : removeToCompare(product)
               }
-              style={{ color: 'red' }}
+              style={{ color: "red" }}
             />
           ) : (
             <MdCompareArrows
               onClick={() =>
-                !isAuthenticated
-                  ? alert('please login before continuing')
-                  : addToCompare(product)
+                !isAuthenticated ? alert("please login") : addToCompare(product)
               }
-              style={{ color: 'yellowgreen' }}
+              style={{ color: "yellowgreen" }}
             />
           )}
           <div className="cart_buttons">
             {selectedProducts && selectedProducts.includes(product) ? (
               <BsCartCheckFill
-                style={{ color: 'green' }}
+                style={{ color: "green" }}
                 onClick={removeCart}
               />
             ) : (
-              <BsCartPlus style={{ color: 'orange' }} onClick={addCart} />
+              <BsCartPlus style={{ color: "orange" }} onClick={addCart} />
             )}
           </div>
         </div>
@@ -122,5 +112,5 @@ export default function ProductCard({
         </div>
       ) : null} */}
     </div>
-  )
+  );
 }

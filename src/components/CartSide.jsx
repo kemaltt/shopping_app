@@ -9,27 +9,12 @@ export default function Cart({ selectedProducts, isAuthenticated }) {
   return (
     <div
       onClick={() =>
-        isAuthenticated
-          ? navigate("/cart")
-          : alert("please login before continuing")
+        isAuthenticated ? navigate("/cart") : alert("please login")
       }
       className="cart_container"
     >
       <FaCartArrowDown />
-      <Badge
-        style={{
-          fontSize: "1.5rem",
-          position: "relative",
-          top: "-40px",
-
-          width: "30px",
-          height: "30px",
-          borderRadius: "50%",
-        }}
-        bg="secondary"
-      >
-        {badge}
-      </Badge>
+      <Badge bg="secondary">{badge}</Badge>
       <span className="visually-hidden">unread messages</span>
     </div>
   );

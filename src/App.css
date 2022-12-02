@@ -299,6 +299,14 @@ td {
   left: 12px;
   color: rgb(243, 233, 233);
 }
+.compare-side span {
+  font-size: 1.2rem;
+  position: relative;
+  top: -31px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
 .cart_container {
   position: fixed;
   right: 3%;
@@ -314,6 +322,14 @@ td {
   position: relative;
   left: 12px;
   color: rgb(243, 233, 233);
+}
+.cart_container span {
+  font-size: 1.5rem;
+  position: relative;
+  top: -40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -449,7 +465,33 @@ td {
     min-width: 100px;
   }
 
+  .compare-side {
+    right: 6%;
+    top: 65%;
+    padding: 15px 3px;
+    z-index: 99999;
+  }
+  .compare-side svg {
+    font-size: 2.5rem;
+    position: relative;
+    left: 12px;
+  }
+  .compare-side span {
+    top: -20px;
+    right: 54%;
+  }
   .cart_container {
-    display: none;
+    right: 3%;
+    top: 80%;
+    padding: 18px 5px;
+  }
+  .cart_container svg {
+    font-size: 4rem;
+    position: relative;
+    left: 12px;
+  }
+  .cart_container span {
+    top: -30px;
+    right: 54%;
   }
 }
