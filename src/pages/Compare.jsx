@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import IconButton from "@mui/material/IconButton";
 export default function Compare({ selectedItems, setSelectedItems }) {
   const removeProduct = (el) => {
     setSelectedItems([
@@ -69,6 +70,17 @@ export default function Compare({ selectedItems, setSelectedItems }) {
                       >
                         Delete
                       </Button>
+                    </th>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <IconButton
+                        color="primary"
+                        aria-label="add to shopping cart"
+                      >
+                        <AddShoppingCartIcon />
+                      </IconButton>
                     </th>
                   </tr>
                 </table>
