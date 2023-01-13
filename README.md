@@ -2,6 +2,8 @@
 
 Link:https://shoppinggapp.netlify.app/
 
+<img width="1439" alt="Bildschirm­foto 2023-01-13 um 16 13 36" src="https://user-images.githubusercontent.com/90035121/212354255-3b7a6369-57c9-43e6-b32f-568c2652a6e7.png">
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
