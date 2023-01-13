@@ -68,49 +68,6 @@ export default function ProductCard({
           </div>
         </div>
       </div>
-      {/* {toggle ? (
-        <div className="popup_container">
-          <img
-            style={{ width: '50%' }}
-            src={product.image}
-            alt={product.name}
-          />
-          <h3>{product.name} </h3>
-          <p>{product.price}</p>
-
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginBottom: '5px',
-            }}
-            className="star"
-          >
-            {[...Array(5)].map((star, i) => (
-              <i
-                style={{
-                  fontSize: '1.5rem',
-                  color: product.rating.rate >= i + 1 ? 'orange' : 'grey',
-                }}
-                class="las la-star"
-              ></i>
-            ))}
-          </div>
-
-          <button
-            style={{
-              background: 'red',
-              border: 'none',
-              padding: '5px 15px',
-              color: 'white',
-              fontSize: '1.2rem',
-            }}
-            onClick={productDetail}
-          >
-            x
-          </button>
-        </div>
-      ) : null} */}
     </div>
   );
 }

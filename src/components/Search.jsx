@@ -1,5 +1,6 @@
-import React from 'react'
-import { useState } from 'react'
+import React from "react";
+import { useState } from "react";
+import { useProductContext } from "../contexts/ProductContext";
 
 export default function Search({
   products,
@@ -7,37 +8,45 @@ export default function Search({
   setMessage,
   isAuthenticated,
 }) {
-  const [input, setInput] = useState('')
+  // const {
+  //   products,
+  //   setProducts,
+  //   setMessage,
+  //   isAuthenticated,
+  //   searchInput,
+  //   setSearchInput,
+  //   filterProducts,
+  // } = useProductContext();
+  const [input, setInput] = useState("");
   const getProduct = (e) => {
-    setInput(e.target.value)
-    e.preventDefault()
+    e.preventDefault();
     if (!isAuthenticated) {
-      alert('please log in before continuing')
+      alert("please log in before continuing");
     } else {
       if (!input) {
-        alert('enter a product')
+        alert("enter a product");
       } else {
         const search = products.filter(
           // (el) => el.name.toLowerCase().indexOf(input.toLowerCase()) !== -1,
-          (el) => el.title.toLowerCase().includes(input.toLowerCase()),
-        )
+          (el) => el.title.toLowerCase().includes(input.toLowerCase())
+        );
 
         if (search.length === 0) {
           setMessage(
-            <span style={{ color: 'red' }}>No matching information</span>,
-          )
+            <span style={{ color: "red" }}>No matching information</span>
+          );
         } else {
-          setProducts(search)
+          setProducts(search);
           setMessage(
-            <span style={{ color: 'yellowgreen' }}>
+            <span style={{ color: "yellowgreen" }}>
               There are {search.length} matches
-            </span>,
-          )
+            </span>
+          );
         }
       }
     }
-    setInput('')
-  }
+    setInput("");
+  };
   return (
     <div className="search_container">
       <form onSubmit={getProduct} action="">
@@ -50,5 +59,5 @@ export default function Search({
         <button type="submit">Search</button>
       </form>
     </div>
-  )
+  );
 }

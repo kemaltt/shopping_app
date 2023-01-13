@@ -5,6 +5,7 @@ import { MdLogout } from "react-icons/md";
 import { MdLogin } from "react-icons/md";
 import { BsCartCheck } from "react-icons/bs";
 import Badge from "react-bootstrap/Badge";
+import { useProductContext } from "../contexts/ProductContext";
 
 export default function Navbar({
   loginWithRedirect,
@@ -14,6 +15,14 @@ export default function Navbar({
   selectedProducts,
   selectedItems,
 }) {
+  // const {
+  //   loginWithRedirect,
+  //   logout,
+  //   isAuthenticated,
+  //   user,
+  //   selectedProducts,
+  //   selectedItems,
+  // } = useProductContext();
   const badge = selectedProducts.length;
   const badge2 = selectedItems.length;
   console.log(badge);
@@ -28,7 +37,7 @@ export default function Navbar({
       <nav>
         <img
           onClick={() => navigate("/", { replace: true })}
-          src="https://pbs.twimg.com/media/Ddna4X7UQAEQeBr.jpg:large"
+          src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
           alt="logo"
         />
         <ul className="nav_item_desktop">
