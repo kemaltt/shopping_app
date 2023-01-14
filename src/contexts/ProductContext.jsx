@@ -19,11 +19,15 @@ export const ProductContextProvider = (props) => {
     );
   };
   const addToCart = (product) => {
-    if (selectedCartProducts.includes(product)) {
-      product.count++;
+    if (isAuthenticated) {
+      if (selectedCartProducts.includes(product)) {
+        product.count++;
+      } else {
+        product.count = 1;
+        setSelectedCartProducts([...selectedCartProducts, product]);
+      }
     } else {
-      product.count = 1;
-      setSelectedCartProducts([...selectedCartProducts, product]);
+      alert("Please login");
     }
   };
   const removeFromCart = (product) => {
@@ -34,7 +38,11 @@ export const ProductContextProvider = (props) => {
     ]);
   };
   const addToCompare = (product) => {
-    setSelectedCompareProducts([...selectedCompareProducts, product]);
+    if (isAuthenticated) {
+      setSelectedCompareProducts([...selectedCompareProducts, product]);
+    } else {
+      alert("Please login");
+    }
   };
   const removeFromCompare = (product) => {
     setSelectedCompareProducts([

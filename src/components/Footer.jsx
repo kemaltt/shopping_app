@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Footer({ isAuthenticated }) {
+export default function Footer() {
   return (
     <div className="footer_container">
       <p> &copy;{new Date().getFullYear()} The Compare App </p>

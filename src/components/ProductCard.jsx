@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { BsCartPlus } from "react-icons/bs";
 // import { BsCartCheckFill } from "react-icons/bs";
@@ -20,12 +19,11 @@ export default function ProductCard({ product, i, id }) {
     addToCompare,
     removeFromCompare,
   } = useProductContext();
-  const [toggle, setToggle] = useState(false);
+
   const navigate = useNavigate();
 
   const productDetail = () => {
     navigate(isAuthenticated ? `/productdetail/${id}` : alert("please login"));
-    setToggle(!toggle);
   };
 
   return (
@@ -47,11 +45,7 @@ export default function ProductCard({ product, i, id }) {
             //   style={{ color: "red" }}
             // />
             <Button
-              onClick={() =>
-                !isAuthenticated
-                  ? alert("please login")
-                  : removeFromCompare(product)
-              }
+              onClick={() => removeFromCompare(product)}
               variant="outlined"
               // style={{ color: "#fff", background: "red" }}
               color="error"
@@ -59,9 +53,7 @@ export default function ProductCard({ product, i, id }) {
             ></Button>
           ) : (
             <Button
-              onClick={() =>
-                !isAuthenticated ? alert("please login") : addToCompare(product)
-              }
+              onClick={() => addToCompare(product)}
               variant="outlined"
               color="success"
               startIcon={<CompareArrowsIcon />}
@@ -84,11 +76,7 @@ export default function ProductCard({ product, i, id }) {
               //   }
               // />
               <Button
-                onClick={
-                  !isAuthenticated
-                    ? alert("please login")
-                    : () => removeFromCart(product)
-                }
+                onClick={() => removeFromCart(product)}
                 variant="outlined"
                 color="error"
                 startIcon={<RemoveShoppingCartIcon />}
@@ -105,11 +93,7 @@ export default function ProductCard({ product, i, id }) {
               //   }
               // />
               <Button
-                onClick={
-                  !isAuthenticated
-                    ? alert("please login")
-                    : () => addToCart(product)
-                }
+                onClick={() => addToCart(product)}
                 variant="outlined"
                 color="success"
                 startIcon={<AddShoppingCartIcon />}

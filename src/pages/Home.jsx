@@ -7,17 +7,7 @@ import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
 import { useProductContext } from "../contexts/ProductContext";
 
-export default function ProductComparison({
-  setProducts,
-  selectedItems,
-  addToCompare,
-  removeToCompare,
-  isAuthenticated,
-
-  addToCart,
-  removeToCart,
-  selectedProducts,
-}) {
+export default function ProductComparison() {
   const [message, setMessage] = useState("");
   const { isLoading, products, filterProducts } = useProductContext();
 
@@ -25,14 +15,8 @@ export default function ProductComparison({
     <Loading />
   ) : (
     <div className="main">
-      <CompareSide
-        selectedItems={selectedItems}
-        isAuthenticated={isAuthenticated}
-      />
-      <CartSide
-        selectedProducts={selectedProducts}
-        isAuthenticated={isAuthenticated}
-      />
+      <CompareSide />
+      <CartSide />
       <Search
         // products={products}
         // setProducts={setProducts}
@@ -48,12 +32,6 @@ export default function ProductComparison({
             product={product}
             id={product.product_id}
             i={i}
-            selected={selectedItems}
-            addToCompare={addToCompare}
-            removeToCompare={removeToCompare}
-            addToCart={addToCart}
-            removeToCart={removeToCart}
-            selectedProducts={selectedProducts}
           />
         ))}
       </div>
