@@ -1,30 +1,27 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BsCartPlus } from "react-icons/bs";
-import { BsCartCheckFill } from "react-icons/bs";
-import { MdCompareArrows } from "react-icons/md";
+// import { BsCartPlus } from "react-icons/bs";
+// import { BsCartCheckFill } from "react-icons/bs";
+// import { MdCompareArrows } from "react-icons/md";
+import { useProductContext } from "../contexts/ProductContext";
+import Button from "@mui/material/Button";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
+import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 
-export default function ProductCard({
-  product,
-  i,
-  id,
-  selected,
-  addToCompare,
-  removeToCompare,
-  addToCart,
-  removeToCart,
-  selectedProducts,
-  isAuthenticated,
-}) {
+export default function ProductCard({ product, i, id }) {
+  const {
+    isAuthenticated,
+    selectedCartProducts,
+    selectedCompareProducts,
+    addToCart,
+    removeFromCart,
+    addToCompare,
+    removeFromCompare,
+  } = useProductContext();
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
-  const removeCart = () => {
-    !isAuthenticated ? alert("please log") : removeToCart(product);
-  };
-  const addCart = () => {
-    !isAuthenticated ? alert("please login") : addToCart(product);
-  };
 
   const productDetail = () => {
     navigate(isAuthenticated ? `/productdetail/${id}` : alert("please login"));
@@ -39,31 +36,86 @@ export default function ProductCard({
         <p className="price">${product.price}</p>
 
         <div className="card_buttons">
-          {selected && selected.includes(product) ? (
-            <MdCompareArrows
+          {selectedCompareProducts &&
+          selectedCompareProducts.includes(product) ? (
+            // <MdCompareArrows
+            //   onClick={() =>
+            //     !isAuthenticated
+            //       ? alert("please login")
+            //       : removeFromCompare(product)
+            //   }
+            //   style={{ color: "red" }}
+            // />
+            <Button
               onClick={() =>
                 !isAuthenticated
                   ? alert("please login")
-                  : removeToCompare(product)
+                  : removeFromCompare(product)
               }
-              style={{ color: "red" }}
-            />
+              variant="outlined"
+              // style={{ color: "#fff", background: "red" }}
+              color="error"
+              startIcon={<CompareArrowsIcon />}
+            ></Button>
           ) : (
-            <MdCompareArrows
+            <Button
               onClick={() =>
                 !isAuthenticated ? alert("please login") : addToCompare(product)
               }
-              style={{ color: "yellowgreen" }}
-            />
+              variant="outlined"
+              color="success"
+              startIcon={<CompareArrowsIcon />}
+            ></Button>
+            // <MdCompareArrows
+            //   onClick={() =>
+            //     !isAuthenticated ? alert("please login") : addToCompare(product)
+            //   }
+            //   style={{ color: "yellowgreen" }}
+            // />
           )}
           <div className="cart_buttons">
-            {selectedProducts && selectedProducts.includes(product) ? (
-              <BsCartCheckFill
-                style={{ color: "green" }}
-                onClick={removeCart}
-              />
+            {selectedCartProducts && selectedCartProducts.includes(product) ? (
+              // <BsCartCheckFill
+              //   style={{ color: "green" }}
+              //   onClick={
+              //     !isAuthenticated
+              //       ? alert("please login")
+              //       : () => removeFromCart(product)
+              //   }
+              // />
+              <Button
+                onClick={
+                  !isAuthenticated
+                    ? alert("please login")
+                    : () => removeFromCart(product)
+                }
+                variant="outlined"
+                color="error"
+                startIcon={<RemoveShoppingCartIcon />}
+              >
+                Del
+              </Button>
             ) : (
-              <BsCartPlus style={{ color: "orange" }} onClick={addCart} />
+              // <BsCartPlus
+              //   style={{ color: "orange" }}
+              //   onClick={
+              //     !isAuthenticated
+              //       ? alert("please login")
+              //       : () => addToCart(product)
+              //   }
+              // />
+              <Button
+                onClick={
+                  !isAuthenticated
+                    ? alert("please login")
+                    : () => addToCart(product)
+                }
+                variant="outlined"
+                color="success"
+                startIcon={<AddShoppingCartIcon />}
+              >
+                Add
+              </Button>
             )}
           </div>
         </div>

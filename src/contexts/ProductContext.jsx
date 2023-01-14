@@ -1,10 +1,13 @@
 import { createContext, useContext, useState } from "react";
 import data from "../products";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const ProductContext = createContext();
 export const useProductContext = () => useContext(ProductContext);
 
 export const ProductContextProvider = (props) => {
+  const { loginWithRedirect, isAuthenticated, logout, isLoading, user } =
+    useAuth0();
   const [selectedCartProducts, setSelectedCartProducts] = useState([]);
   const [selectedCompareProducts, setSelectedCompareProducts] = useState([]);
   const [products, setProducts] = useState(data);
@@ -14,6 +17,31 @@ export const ProductContextProvider = (props) => {
     return item.filter((el) =>
       el.title.toLowerCase().includes(searchInput.toLowerCase())
     );
+  };
+  const addToCart = (product) => {
+    if (selectedCartProducts.includes(product)) {
+      product.count++;
+    } else {
+      product.count = 1;
+      setSelectedCartProducts([...selectedCartProducts, product]);
+    }
+  };
+  const removeFromCart = (product) => {
+    setSelectedCartProducts([
+      ...selectedCartProducts.filter(
+        (el) => el.product_id !== product.product_id
+      ),
+    ]);
+  };
+  const addToCompare = (product) => {
+    setSelectedCompareProducts([...selectedCompareProducts, product]);
+  };
+  const removeFromCompare = (product) => {
+    setSelectedCompareProducts([
+      ...selectedCompareProducts.filter(
+        (el) => el.product_id !== product.product_id
+      ),
+    ]);
   };
 
   return (
@@ -25,7 +53,18 @@ export const ProductContextProvider = (props) => {
         selectedCompareProducts,
         setSelectedCartProducts,
         setSelectedCompareProducts,
+        searchInput,
+        setSearchInput,
         filterProducts,
+        loginWithRedirect,
+        isAuthenticated,
+        logout,
+        isLoading,
+        user,
+        addToCart,
+        removeFromCart,
+        addToCompare,
+        removeFromCompare,
       }}
     >
       {props.children}

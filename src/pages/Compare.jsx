@@ -2,19 +2,15 @@ import React from "react";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useProductContext } from "../contexts/ProductContext";
 
-export default function Compare({ selectedItems, setSelectedItems }) {
-  const removeProduct = (el) => {
-    setSelectedItems([
-      ...selectedItems.filter(
-        (product) => product.product_id !== el.product_id
-      ),
-    ]);
-  };
+export default function Compare() {
+  const { selectedCompareProducts, removeFromCompare, addToCart } =
+    useProductContext();
 
   return (
     <div className="compare">
-      {selectedItems.length > 0 ? (
+      {selectedCompareProducts.length > 0 ? (
         <>
           <h1 style={{ color: "green", textAlign: "center" }}>
             Product comparison
@@ -36,7 +32,7 @@ export default function Compare({ selectedItems, setSelectedItems }) {
                 width: "80%",
               }}
             >
-              {selectedItems.map((el, i) => (
+              {selectedCompareProducts.map((el, i) => (
                 <table key={i}>
                   <tr>
                     <th>{el.title}</th>
@@ -63,7 +59,7 @@ export default function Compare({ selectedItems, setSelectedItems }) {
                   <tr>
                     <th>
                       <Button
-                        onClick={() => removeProduct(el)}
+                        onClick={() => removeFromCompare(el)}
                         variant="outlined"
                         color="error"
                         startIcon={<DeleteIcon />}
@@ -76,7 +72,7 @@ export default function Compare({ selectedItems, setSelectedItems }) {
                   <tr>
                     <th>
                       <Button
-                        // onClick={() => removeProduct(el)}
+                        onClick={() => addToCart(el)}
                         variant="outlined"
                         color="success"
                         startIcon={<AddShoppingCartIcon />}

@@ -4,10 +4,10 @@ import Badge from "react-bootstrap/Badge";
 import { useNavigate } from "react-router-dom";
 import { useProductContext } from "../contexts/ProductContext";
 
-export default function Cart({ selectedProducts, isAuthenticated }) {
-  // const { selectedProducts, isAuthenticated } = useProductContext();
+export default function Cart() {
+  const { selectedCartProducts, isAuthenticated } = useProductContext();
   const navigate = useNavigate();
-  const badge = selectedProducts.length;
+  const badge = selectedCartProducts.length;
   return (
     <div
       onClick={() =>

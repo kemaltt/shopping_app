@@ -1,26 +1,28 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { useParams } from "react-router-dom";
 // import css from '../css/ProductDetail.css'
+import { useProductContext } from "../contexts/ProductContext";
 
-export default function ProductDetail({ data }) {
-  const { id } = useParams()
-  console.log(id)
-  const filteredProduct = data.filter((el) => el.product_id === Number(id))
-  console.log(filteredProduct[0])
-  const product = filteredProduct[0]
+export default function ProductDetail() {
+  const { products } = useProductContext();
+  const { id } = useParams();
+  console.log(id);
+  const filteredProduct = products.filter((el) => el.product_id === Number(id));
+  console.log(filteredProduct[0]);
+  const product = filteredProduct[0];
 
   return (
     <div className="product_detail">
       <img src={product.image} alt="" />
-      <h2 style={{ textDecoration: 'underline' }}>{product.title}</h2>
+      <h2 style={{ textDecoration: "underline" }}>{product.title}</h2>
       <p>{product.category} </p>
       <p>${product.price} </p>
       <p
         style={{
-          fontWeight: 'bold',
-          fontStyle: 'italic',
-          color: 'grey',
-          textDecoration: 'underline',
+          fontWeight: "bold",
+          fontStyle: "italic",
+          color: "grey",
+          textDecoration: "underline",
         }}
       >
         Description
@@ -36,32 +38,32 @@ export default function ProductDetail({ data }) {
       </p> */}
       <p
         style={{
-          fontWeight: 'bold',
-          fontStyle: 'italic',
-          color: 'grey',
-          textDecoration: 'underline',
+          fontWeight: "bold",
+          fontStyle: "italic",
+          color: "grey",
+          textDecoration: "underline",
         }}
       >
         Rating
       </p>
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: '5px',
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "5px",
         }}
         className="star"
       >
         {[...Array(5)].map((star, i) => (
           <i
             style={{
-              fontSize: '1.5rem',
-              color: product.rating.rate >= i + 1 ? 'orange' : 'grey',
+              fontSize: "1.5rem",
+              color: product.rating.rate >= i + 1 ? "orange" : "grey",
             }}
             class="las la-star"
           ></i>
         ))}
       </div>
     </div>
-  )
+  );
 }

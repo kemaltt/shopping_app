@@ -7,24 +7,17 @@ import { BsCartCheck } from "react-icons/bs";
 import Badge from "react-bootstrap/Badge";
 import { useProductContext } from "../contexts/ProductContext";
 
-export default function Navbar({
-  loginWithRedirect,
-  logout,
-  isAuthenticated,
-  user,
-  selectedProducts,
-  selectedItems,
-}) {
-  // const {
-  //   loginWithRedirect,
-  //   logout,
-  //   isAuthenticated,
-  //   user,
-  //   selectedProducts,
-  //   selectedItems,
-  // } = useProductContext();
-  const badge = selectedProducts.length;
-  const badge2 = selectedItems.length;
+export default function Navbar() {
+  const {
+    loginWithRedirect,
+    logout,
+    isAuthenticated,
+    user,
+    selectedCartProducts,
+    selectedCompareProducts,
+  } = useProductContext();
+  const badge = selectedCartProducts.length;
+  const badge2 = selectedCompareProducts.length;
   console.log(badge);
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);

@@ -5,20 +5,21 @@ import CompareSide from "../components/CompareSide";
 import Loading from "../components/Loading";
 import ProductCard from "../components/ProductCard";
 import Search from "../components/Search";
+import { useProductContext } from "../contexts/ProductContext";
 
 export default function ProductComparison({
-  products,
   setProducts,
   selectedItems,
   addToCompare,
   removeToCompare,
   isAuthenticated,
-  isLoading,
+
   addToCart,
   removeToCart,
   selectedProducts,
 }) {
   const [message, setMessage] = useState("");
+  const { isLoading, products, filterProducts } = useProductContext();
 
   return isLoading ? (
     <Loading />
@@ -33,15 +34,15 @@ export default function ProductComparison({
         isAuthenticated={isAuthenticated}
       />
       <Search
-        products={products}
-        setProducts={setProducts}
+        // products={products}
+        // setProducts={setProducts}
         setMessage={setMessage}
-        isAuthenticated={isAuthenticated}
+        // isAuthenticated={isAuthenticated}
       />
       <p style={{ textAlign: "center" }}> {message}</p>
 
       <div className="products_container">
-        {products.map((product, i) => (
+        {filterProducts(products).map((product, i) => (
           <ProductCard
             key={i}
             product={product}
@@ -53,7 +54,6 @@ export default function ProductComparison({
             addToCart={addToCart}
             removeToCart={removeToCart}
             selectedProducts={selectedProducts}
-            isAuthenticated={isAuthenticated}
           />
         ))}
       </div>

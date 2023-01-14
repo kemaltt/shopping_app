@@ -1,28 +1,31 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import { useProductContext } from "../contexts/ProductContext";
 
-export default function Contact({ selectedProducts, setSelectedProducts }) {
+export default function Contact() {
+  const { selectedCartProducts, setSelectedCartProducts, removeFromCart } =
+    useProductContext();
   // const [quantity, setQuantity] = useState(1)
   // console.log(selectedProducts)
   let total = 0;
 
   const decreaseQuantity = (product) => {
-    if (selectedProducts.includes(product)) {
+    if (selectedCartProducts.includes(product)) {
       if (product.count > 1) {
         product.count--;
-        setSelectedProducts([...selectedProducts]);
+        setSelectedCartProducts([...selectedCartProducts]);
       }
     }
   };
   const increaseQuantity = (product) => {
-    if (selectedProducts.includes(product)) {
+    if (selectedCartProducts.includes(product)) {
       product.count++;
-      setSelectedProducts([...selectedProducts]);
+      setSelectedCartProducts([...selectedCartProducts]);
     }
   };
 
-  const totalAmount = selectedProducts.map((product) => {
+  const totalAmount = selectedCartProducts.map((product) => {
     return product.price * product.count;
   });
   totalAmount.map((el) => (total += el));
@@ -35,15 +38,9 @@ export default function Contact({ selectedProducts, setSelectedProducts }) {
   //     setSelectedProducts([...selectedProducts, product])
   //   }
 
-  const removeToProduct = (product) => {
-    setSelectedProducts([
-      ...selectedProducts.filter((el) => el.product_id !== product.product_id),
-    ]);
-  };
-  console.log(selectedProducts);
   return (
     <div className="cart">
-      {selectedProducts.length > 0 ? (
+      {selectedCartProducts.length > 0 ? (
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -56,7 +53,7 @@ export default function Contact({ selectedProducts, setSelectedProducts }) {
             </tr>
           </thead>
           <tbody>
-            {selectedProducts.map((product, i) => (
+            {selectedCartProducts.map((product, i) => (
               <tr key={i}>
                 <td>{i + 1}</td>
                 <td>
@@ -85,7 +82,7 @@ export default function Contact({ selectedProducts, setSelectedProducts }) {
                 <td>${(product.price * product.count).toFixed(2)} </td>
                 <td style={{ textAlign: "center" }}>
                   <RiDeleteBin6Fill
-                    onClick={() => removeToProduct(product)}
+                    onClick={() => removeFromCart(product)}
                     style={{ color: "red" }}
                   />
                 </td>

@@ -112,6 +112,7 @@ td {
 .main {
   text-align: center;
   padding-bottom: 10vh;
+  min-height: 75vh;
 }
 
 .products_container {
@@ -186,8 +187,8 @@ td {
   padding: 0 1%;
 }
 
-.card_buttons svg {
-  font-size: 3rem;
+.card_buttons button {
+  width: 20px;
 }
 
 /* .card_buttons svg:nth-of-type(2) {
@@ -220,7 +221,7 @@ td {
   padding: 5px;
   border: none;
   border: solid 1px gray;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
   font-size: 16px;
 }
 
@@ -269,7 +270,7 @@ td {
 
 .cart {
   width: 80%;
-  height: 100vh;
+  height: 69vh;
   margin: 5vh auto;
 }
 
@@ -377,9 +378,8 @@ td {
     margin: 4vh auto;
   }
 
-  .search_container form button {
-    width: 25%;
-    padding: 6px;
+  .search_container form input {
+    width: 100%;
   }
 
   .products_container {
@@ -415,11 +415,13 @@ td {
   }
 
   .card_buttons {
-    padding: 0 4%;
+    gap: 7px;
+    padding: 0;
   }
 
-  .card_buttons svg {
-    font-size: 2.2rem;
+  .card_buttons button {
+    width: 10px;
+    height: 23px;
   }
 
   .compare_container {

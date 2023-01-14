@@ -4,10 +4,10 @@ import Badge from "react-bootstrap/Badge";
 import { useNavigate } from "react-router-dom";
 import { useProductContext } from "../contexts/ProductContext";
 
-export default function CompareSide({ selectedItems, isAuthenticated }) {
-  // const { selectedProducts, isAuthenticated } = useProductContext();
+export default function CompareSide() {
+  const { selectedCompareProducts, isAuthenticated } = useProductContext();
   const navigate = useNavigate();
-  const badge = selectedItems.length;
+  const badge = selectedCompareProducts.length;
   return (
     <div
       onClick={() =>
